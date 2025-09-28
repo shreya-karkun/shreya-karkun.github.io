@@ -1,7 +1,14 @@
 {
-  "/page": "app/page.js",
-  "/blog/page": "app/blog/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/cv/page": "app/cv/page.js",
+  "/about/page": "app/about/page.js",
   "/publications/page": "app/publications/page.js",
+  "/page": "app/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
   "/talks-posters/page": "app/talks-posters/page.js",
-  "/contact/page": "app/contact/page.js"
+  "/contact/page": "app/contact/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/research/page": "app/research/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js"
 }
