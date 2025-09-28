@@ -12,7 +12,8 @@ import {
   Database,
   BarChart3,
   Settings,
-  Info
+  Info,
+  X
 } from 'lucide-react';
 
 interface ProjectDemo {

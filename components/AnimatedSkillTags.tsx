@@ -118,7 +118,7 @@ interface Skill {
   proficiency: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
   learningPath?: string[];
   relatedSkills?: string[];
-  certifications?: string[];
+  skillCertifications?: string[];
   resources?: {
     type: 'course' | 'book' | 'tutorial' | 'documentation';
     title: string;
@@ -398,7 +398,7 @@ const skills: Skill[] = [
     proficiency: 'Expert',
     learningPath: ['Basic MATLAB', 'Data Analysis', 'Signal Processing', 'Advanced Toolboxes'],
     relatedSkills: ['Python', 'Signal Processing', 'Data Analysis'],
-    certifications: ['MATLAB Onramp', 'Signal Processing with MATLAB'],
+    skillCertifications: ['MATLAB Onramp', 'Signal Processing with MATLAB'],
     resources: [
       { type: 'course', title: 'MATLAB Fundamentals', url: '#' },
       { type: 'book', title: 'MATLAB for Engineers', url: '#' },
@@ -896,7 +896,7 @@ const skills: Skill[] = [
     proficiency: 'Advanced',
     learningPath: ['Python Basics', 'NumPy & Pandas', 'Data Visualization', 'Machine Learning'],
     relatedSkills: ['MATLAB', 'Data Analysis', 'Machine Learning'],
-    certifications: ['Python for Data Science', 'Machine Learning with Python'],
+    skillCertifications: ['Python for Data Science', 'Machine Learning with Python'],
     resources: [
       { type: 'course', title: 'Python for Data Science', url: '#' },
       { type: 'tutorial', title: 'NumPy Tutorial', url: '#' },
@@ -4125,7 +4125,7 @@ export default function AnimatedSkillTags() {
             </div>
             <div className="text-center">
               <div className="font-semibold text-green-600 dark:text-green-400">
-                {Math.round(skills.reduce((acc, skill) => acc + skill.yearsExperience, 0) / skills.length * 10) / 10}
+                {Math.round(skills.reduce((acc, skill) => acc + (skill.yearsExperience || 0), 0) / skills.length * 10) / 10}
               </div>
               <div className="text-zinc-500 dark:text-zinc-400">Avg. Experience</div>
             </div>

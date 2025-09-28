@@ -11,7 +11,7 @@ export default function Blog() {
     const raw = fs.readFileSync(path.join(dir, fn), 'utf8');
     const { data } = matter(raw);
     return { slug: fn.replace(/\.md$/, ''), ...data };
-  }).sort((a,b)=> new Date(b.date).getTime() - new Date(a.date).getTime());
+  }).sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <Section title="Blog">
