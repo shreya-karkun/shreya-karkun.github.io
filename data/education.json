@@ -1,0 +1,29 @@
+[
+  {
+    "school": "BMS College of Engineering (BMSCE), Bengaluru",
+    "degree": "M.Tech",
+    "field": "Signal Processing / Speech",
+    "year": "2023",
+    "gpa": "8.5/10",
+    "thesis": "Advanced Signal Processing Techniques in Speech Analysis",
+    "relevant_courses": [
+      "Digital Signal Processing",
+      "Speech Processing",
+      "Machine Learning",
+      "Statistical Signal Processing"
+    ]
+  },
+  {
+    "school": "Basaveshwar Engineering College",
+    "degree": "B.E.",
+    "field": "Electrical & Electronics Engineering",
+    "year": "2021",
+    "gpa": "8.2/10",
+    "relevant_courses": [
+      "Signals and Systems",
+      "Digital Electronics",
+      "Control Systems",
+      "Communication Systems"
+    ]
+  }
+]

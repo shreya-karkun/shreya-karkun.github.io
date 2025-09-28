@@ -1,0 +1,36 @@
+[
+  {
+    "id": "interspeech2025",
+    "title": "A real-time MRI study on asymmetry in velum dynamics during VCV production with nasal sounds",
+    "authors": [
+      "Shreya Karkun",
+      "Chitra Shyam",
+      "Vishakh D",
+      "Sreeja Krishnan"
+    ],
+    "venue": "Interspeech",
+    "year": 2025,
+    "location": "Rotterdam, Netherlands",
+    "abstract": "We analyze velum dynamics in VCV production using real-time MRI, exploring asymmetry patterns during nasal contexts. Our study reveals significant asymmetries in velum movement patterns that correlate with phonetic context and articulatory constraints.",
+    "pdf": "/papers/interspeech2025.pdf",
+    "poster": "/posters/interspeech2025_poster.pdf",
+    "links": {
+      "doi": "",
+      "slides": "",
+      "video": ""
+    },
+    "tags": [
+      "rtMRI",
+      "Velum Dynamics",
+      "VCV",
+      "Speech Production",
+      "Articulatory Phonetics"
+    ],
+    "awards": [
+      "Best Student Paper Award – nomination"
+    ],
+    "keywords": ["real-time MRI", "velum dynamics", "VCV sequences", "articulatory asymmetry", "speech production"],
+    "funding": "SPIRE Lab, IISc",
+    "featured": true
+  }
+]

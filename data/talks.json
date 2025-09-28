@@ -1,0 +1,39 @@
+[
+  {
+    "id": "interspeech2025-poster",
+    "title": "A real-time MRI study on asymmetry in velum dynamics during VCV production with nasal sounds",
+    "event": "Interspeech 2025",
+    "location": "Rotterdam, Netherlands",
+    "date": "2025-08-18",
+    "type": "Poster",
+    "image": "/images/shreya/poster1.jpg",
+    "link": "#",
+    "abstract": "We present findings on velum dynamics asymmetry in VCV sequences using real-time MRI, revealing significant patterns in articulatory coordination.",
+    "awards": ["Best Student Paper Award – nomination"],
+    "tags": ["rtMRI", "Velum Dynamics", "Speech Production", "International Conference"]
+  },
+  {
+    "id": "spire-lab-seminar",
+    "title": "Advances in Articulatory Phonetics: Multi-modal Approaches to Speech Production",
+    "event": "SPIRE Lab Seminar Series",
+    "location": "IISc, Bengaluru",
+    "date": "2024-11-15",
+    "type": "Seminar",
+    "image": "/images/shreya/poster2.jpg",
+    "link": "#",
+    "abstract": "Overview of current research in articulatory phonetics using rtMRI and EMA, with focus on methodological advances and research findings.",
+    "tags": ["Research Seminar", "Articulatory Phonetics", "Methodology"]
+  },
+  {
+    "id": "conference-workshop",
+    "title": "Real-time MRI in Speech Research: Techniques and Applications",
+    "event": "Speech Technology Workshop",
+    "location": "Online",
+    "date": "2024-09-20",
+    "type": "Workshop",
+    "image": "/images/shreya/poster3.jpg",
+    "link": "#",
+    "abstract": "Hands-on workshop covering rtMRI data acquisition, processing, and analysis techniques for speech production research.",
+    "tags": ["Workshop", "rtMRI", "Data Processing", "Educational"]
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "personal_info": {
+    "name": "Shreya Karkun",
+    "title": "Research Associate",
+    "email": "shreyashri025@gmail.com",
+    "phone": "+91-XXXXXXXXXX",
+    "location": "Bengaluru, India",
+    "linkedin": "https://www.linkedin.com/in/shreya-karkun-345551220",
+    "website": "https://shreya-karkun.vercel.app"
+  },
+  "summary": "Researcher in speech production and medical imaging (rtMRI, EMA) focusing on co‑articulation, tongue shape variability, articulatory symmetry, and velum dynamics. Currently working as Project Associate at SPIRE Lab, IISc.",
+  "education": [
+    {
+      "degree": "M.Tech in Signal Processing",
+      "school": "BMS College of Engineering (BMSCE), Bengaluru",
+      "year": "2023",
+      "gpa": "8.5/10"
+    },
+    {
+      "degree": "B.E. in Electrical & Electronics Engineering",
+      "school": "Basaveshwar Engineering College",
+      "year": "2021",
+      "gpa": "8.2/10"
+    }
+  ],
+  "experience": [
+    {
+      "position": "Project Associate",
+      "organization": "SPIRE Lab, Indian Institute of Science (IISc)",
+      "location": "Bengaluru, India",
+      "start_date": "September 2023",
+      "end_date": "Present",
+      "description": "Leading research in speech production using advanced medical imaging techniques including real-time MRI and electromagnetic articulography.",
+      "achievements": [
+        "Co-authored paper accepted at Interspeech 2025; nominated for Best Student Paper Award",
+        "Developed comprehensive rtMRI data processing toolkit",
+        "Built EMA visualization suite for articulatory analysis",
+        "Collaborated with international research teams"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "title": "A real-time MRI study on asymmetry in velum dynamics during VCV production with nasal sounds",
+      "authors": "Shreya Karkun, Chitra Shyam, Vishakh D, Sreeja Krishnan",
+      "venue": "Interspeech 2025",
+      "year": "2025",
+      "status": "Accepted",
+      "awards": ["Best Student Paper Award – nomination"]
+    }
+  ],
+  "skills": {
+    "technical": [
+      "MATLAB",
+      "Python",
+      "Signal Processing",
+      "Image Processing",
+      "Data Analysis",
+      "Machine Learning"
+    ],
+    "research": [
+      "Real-time MRI (rtMRI)",
+      "Electromagnetic Articulography (EMA)",
+      "Speech Production",
+      "Articulatory Phonetics",
+      "Statistical Analysis"
+    ],
+    "tools": [
+      "MATLAB",
+      "Python",
+      "OpenCV",
+      "NumPy",
+      "Matplotlib",
+      "scikit-image"
+    ]
+  },
+  "awards": [
+    "Best Student Paper Award – nomination, Interspeech 2025"
+  ],
+  "conferences": [
+    "Interspeech 2025, Rotterdam, Netherlands (Poster Presentation)"
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Fluent"
+    },
+    {
+      "language": "Hindi",
+      "proficiency": "Native"
+    },
+    {
+      "language": "Kannada",
+      "proficiency": "Native"
+    }
+  ]
+}
+

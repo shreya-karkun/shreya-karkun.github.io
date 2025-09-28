@@ -1,0 +1,20 @@
+[
+  {
+    "org": "SPIRE Lab, Indian Institute of Science (IISc)",
+    "role": "Project Associate",
+    "start": "2023-09-01",
+    "end": null,
+    "current": true,
+    "location": "Bengaluru, India",
+    "description": "Leading research in speech production using advanced medical imaging techniques including real-time MRI and electromagnetic articulography.",
+    "bullets": [
+      "Research on speech production using real-time MRI and electromagnetic articulography (EMA).",
+      "Investigated co-articulation, velum dynamics, and articulatory symmetry during VCV sequences.",
+      "Built analysis pipelines and visualizations for articulatory data.",
+      "Co-authored an Interspeech 2025 paper; nominated for Best Student Paper Award.",
+      "Developed MATLAB and Python tools for rtMRI data processing and analysis.",
+      "Collaborated with international research teams on speech production studies."
+    ],
+    "technologies": ["MATLAB", "Python", "rtMRI", "EMA", "Signal Processing", "Data Visualization"]
+  }
+]

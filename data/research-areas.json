@@ -1,0 +1,48 @@
+[
+  {
+    "id": "speech-production",
+    "title": "Speech Production",
+    "description": "Investigating the mechanisms of speech production using advanced medical imaging techniques to understand articulatory coordination and motor control.",
+    "image": "/images/research/speech-production.jpg",
+    "techniques": ["rtMRI", "EMA", "Ultrasound", "Electropalatography"],
+    "focus_areas": [
+      "Articulatory coordination",
+      "Motor control in speech",
+      "Co-articulatory effects",
+      "Individual differences"
+    ],
+    "publications_count": 1,
+    "active_projects": 2
+  },
+  {
+    "id": "rtmri-ema",
+    "title": "rtMRI & EMA",
+    "description": "Advanced medical imaging techniques for real-time visualization of articulatory movements during speech production.",
+    "image": "/images/research/rtmri-ema.jpg",
+    "techniques": ["Real-time MRI", "Electromagnetic Articulography", "Image Processing"],
+    "focus_areas": [
+      "Real-time imaging protocols",
+      "Articulatory tracking",
+      "Data processing pipelines",
+      "Multi-modal integration"
+    ],
+    "publications_count": 1,
+    "active_projects": 2
+  },
+  {
+    "id": "coarticulation",
+    "title": "Co-articulation & Velum Dynamics",
+    "description": "Studying how adjacent sounds influence each other's articulation, with special focus on velum dynamics in nasal contexts.",
+    "image": "/images/research/coarticulation.jpg",
+    "techniques": ["Velum tracking", "Tongue shape analysis", "Statistical modeling"],
+    "focus_areas": [
+      "Velum dynamics in VCV sequences",
+      "Tongue shape variability",
+      "Articulatory symmetry",
+      "Contextual effects"
+    ],
+    "publications_count": 1,
+    "active_projects": 1
+  }
+]
+

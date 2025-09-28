@@ -1,0 +1,39 @@
+{
+  "name": "Shreya Karkun",
+  "role": "Project Associate, SPIRE Lab, IISc",
+  "location": "Bengaluru, India",
+  "email": "shreyashri025@gmail.com",
+  "phone": "+91-XXXXXXXXXX",
+  "summary": "Researcher in speech production and medical imaging (rtMRI, EMA) focusing on co‑articulation, tongue shape variability, articulatory symmetry, and velum dynamics.",
+  "elevator_pitch": "Research Associate @ IISc SPIRE Lab • Speech Production, rtMRI & EMA • Building tools that reveal how we speak.",
+  "stats": {
+    "experience_years": "2+",
+    "papers_published": "1",
+    "awards_nominated": "1",
+    "research_areas": "3"
+  },
+  "skills": [
+    "MATLAB",
+    "Python",
+    "Signal Processing",
+    "Speech Science",
+    "rtMRI",
+    "EMA",
+    "Data Analysis",
+    "Machine Learning",
+    "Image Processing"
+  ],
+  "research_areas": [
+    "Speech Production",
+    "rtMRI & EMA",
+    "Co-articulation",
+    "Velum Dynamics"
+  ],
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/shreya-karkun-345551220",
+    "google_scholar": "#",
+    "github": "#",
+    "orcid": "#"
+  },
+  "cv_download": "/cv/shreya-karkun-cv.pdf"
+}
