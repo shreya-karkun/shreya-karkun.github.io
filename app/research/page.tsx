@@ -18,7 +18,7 @@ export default function Research() {
             <div key={i} className="card p-6 relative overflow-hidden">
               {/* Lottie Animation Background */}
               <div className="absolute top-2 right-2 opacity-10 pointer-events-none">
-                <LottieLoader size="sm" />
+                <LottieLoader size="sm" delay={1000} />
               </div>
               
               <h3 className="font-semibold relative z-10">{t}</h3>
@@ -51,7 +51,7 @@ export default function Research() {
               <div className="bg-white/60 dark:bg-zinc-800/60 rounded-xl p-6 relative overflow-hidden">
                 {/* Lottie Animation Background */}
                 <div className="absolute top-2 right-2 opacity-10 pointer-events-none">
-                  <LottieLoader size="sm" />
+                  <LottieLoader size="sm" delay={1500} />
                 </div>
                 
                 <div className="flex items-center gap-3 mb-4 relative z-10">
@@ -69,7 +69,7 @@ export default function Research() {
               <div className="bg-white/60 dark:bg-zinc-800/60 rounded-xl p-6 relative overflow-hidden">
                 {/* Lottie Animation Background */}
                 <div className="absolute top-2 right-2 opacity-10 pointer-events-none">
-                  <LottieLoader size="sm" />
+                  <LottieLoader size="sm" delay={1500} />
                 </div>
                 
                 <div className="flex items-center gap-3 mb-4 relative z-10">
