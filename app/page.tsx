@@ -98,6 +98,47 @@ export default function Home() {
       </Section>
 
       {/* Personal Touch Section */}
+      {/* PhD Aspirations Section */}
+      <Section title="🎓 PhD Aspirations" description="My journey towards advanced research in Speech Science">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-6 sm:p-8 md:p-12">
+            <div className="text-center mb-6">
+              <div className="text-4xl sm:text-6xl mb-4">🎓</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+                Pursuing PhD in Speech Science & Technology
+              </h3>
+              <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 mb-6 leading-relaxed">
+                I am actively seeking PhD opportunities in Speech Science, Computational Linguistics, 
+                and Biomedical Engineering to advance my research in real-time MRI and articulatory dynamics.
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div className="bg-white/60 dark:bg-zinc-800/60 rounded-xl p-4 sm:p-6 text-center">
+                <div className="text-2xl mb-2">🔬</div>
+                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Research Focus</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">rtMRI, EMA, Co-articulation, Velum Dynamics</p>
+              </div>
+              <div className="bg-white/60 dark:bg-zinc-800/60 rounded-xl p-4 sm:p-6 text-center">
+                <div className="text-2xl mb-2">🎯</div>
+                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Target Programs</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Speech Science, Computational Linguistics, Biomedical Engineering</p>
+              </div>
+              <div className="bg-white/60 dark:bg-zinc-800/60 rounded-xl p-4 sm:p-6 text-center sm:col-span-2 lg:col-span-1">
+                <div className="text-2xl mb-2">🌍</div>
+                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Global Opportunities</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Open to international PhD programs and collaborations</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </Section>
+
       <Section title="💝 Made with Love" description="A personal note from Shreya">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

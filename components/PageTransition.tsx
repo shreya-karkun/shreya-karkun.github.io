@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import LottieLoader from './LottieLoader';
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -84,11 +85,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
         transition={{ duration: 0.5, delay: 0.5 }}
         onAnimationComplete={() => setIsLoading(false)}
       >
-        <motion.div
-          className="w-16 h-16 border-4 border-indigo-200 dark:border-indigo-800 border-t-indigo-600 dark:border-t-indigo-400 rounded-full"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-        />
+        <LottieLoader size="lg" />
       </motion.div>
     );
   }
