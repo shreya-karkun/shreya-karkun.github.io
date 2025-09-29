@@ -7,18 +7,25 @@ import Timeline from '@/components/Timeline';
 import Section from '@/components/Section';
 import InteractiveTimeline from '@/components/InteractiveTimeline';
 import AnimatedSkillTags from '@/components/AnimatedSkillTags';
+import LottieLoader from '@/components/LottieLoader';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function About() {
   return (
     <div className="space-y-10">
-      <section className="card p-6 sm:p-8">
+      <section className="card p-6 sm:p-8 relative overflow-hidden">
+        {/* Lottie Animation Background */}
+        <div className="absolute top-4 right-4 opacity-10 pointer-events-none">
+          <LottieLoader size="sm" />
+        </div>
+        
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
+            className="relative z-10"
           >
             <h1 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">About Me</h1>
             <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 mb-4 sm:mb-6 max-w-3xl leading-relaxed">

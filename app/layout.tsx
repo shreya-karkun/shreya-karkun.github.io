@@ -4,6 +4,9 @@ import { Inter, Spectral, Dancing_Script } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ClientWrapper from '@/components/ClientWrapper';
+import ProgressIndicator from '@/components/ProgressIndicator';
+import FloatingActionButton from '@/components/FloatingActionButton';
+import ParticleBackground from '@/components/ParticleBackground';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -36,9 +39,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.variable} ${spectral.variable} ${dancingScript.variable} min-h-screen bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900 text-zinc-900 dark:text-zinc-100 gradient`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <ClientWrapper>
+            <ProgressIndicator />
+            <ParticleBackground />
             <Header />
             <main className="container py-6 sm:py-8">{children}</main>
             <Footer />
+            <FloatingActionButton />
           </ClientWrapper>
         </ThemeProvider>
       </body>

@@ -7,6 +7,7 @@ import PaperCard from '@/components/PaperCard';
 import StatPills from '@/components/StatPills';
 import AnimatedHero from '@/components/AnimatedHero';
 import LottieLoader from '@/components/LottieLoader';
+import ScrollAnimation from '@/components/ScrollAnimation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Quote, Heart, Sparkles } from 'lucide-react';
@@ -29,6 +30,14 @@ export default function Home() {
           className="max-w-4xl mx-auto"
         >
           <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-6 sm:p-8 md:p-12 relative overflow-hidden">
+            {/* Lottie Animation Background */}
+            <div className="absolute top-4 right-4 opacity-15 pointer-events-none">
+              <LottieLoader size="sm" />
+            </div>
+            <div className="absolute bottom-4 left-4 opacity-10 pointer-events-none">
+              <LottieLoader size="sm" />
+            </div>
+            
             {/* Decorative elements */}
             <div className="absolute top-2 sm:top-4 right-2 sm:right-4 text-4xl sm:text-6xl opacity-10">
               <Sparkles className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-400" />
@@ -57,12 +66,15 @@ export default function Home() {
       </Section>
 
 
-      <Section title="📚 Featured work" description="Recent highlight from my research.">
-        <PaperCard p={featured} />
-      </Section>
+      <ScrollAnimation direction="up" delay={0.2}>
+        <Section title="📚 Featured work" description="Recent highlight from my research.">
+          <PaperCard p={featured} />
+        </Section>
+      </ScrollAnimation>
 
-      <Section title="🎯 Focus areas">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <ScrollAnimation direction="up" delay={0.4}>
+        <Section title="🎯 Focus areas">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {[
             { 
               title: '🗣️ Speech Production', 
@@ -100,8 +112,9 @@ export default function Home() {
               <p className="text-xs sm:text-sm mt-2 opacity-90 leading-relaxed relative z-10">{c.text}</p>
             </motion.div>
           ))}
-        </div>
-      </Section>
+          </div>
+        </Section>
+      </ScrollAnimation>
 
       {/* Personal Touch Section */}
       {/* PhD Exploration Section */}
@@ -152,16 +165,24 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <div className="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-6 sm:p-8 md:p-12">
-            <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">💖</div>
-            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-3 sm:mb-4">
+          <div className="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-6 sm:p-8 md:p-12 relative overflow-hidden">
+            {/* Lottie Animation Background */}
+            <div className="absolute top-4 right-4 opacity-20 pointer-events-none">
+              <LottieLoader size="sm" />
+            </div>
+            <div className="absolute bottom-4 left-4 opacity-15 pointer-events-none">
+              <LottieLoader size="sm" />
+            </div>
+            
+            <div className="text-4xl sm:text-6xl mb-3 sm:mb-4 relative z-10">💖</div>
+            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-3 sm:mb-4 relative z-10">
               Made with Love by Shreya
             </h3>
-            <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 mb-4 sm:mb-6 leading-relaxed">
+            <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 mb-4 sm:mb-6 leading-relaxed relative z-10">
               Every line of code, every research paper, and every discovery is driven by passion and dedication. 
               This website represents not just my work, but my journey in the fascinating world of speech research.
             </p>
-            <div className="flex justify-center gap-3 sm:gap-4 text-xl sm:text-2xl">
+            <div className="flex justify-center gap-3 sm:gap-4 text-xl sm:text-2xl relative z-10">
               <span>🔬</span>
               <span>💡</span>
               <span>🚀</span>
