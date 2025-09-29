@@ -111,6 +111,12 @@
                     
                     // Use replace to avoid adding to history
                     window.location.replace(redirectUrl);
+                } else {
+                    // If we have a fragment, redirect to index.html and let it handle the routing
+                    var redirectUrl = window.location.protocol + '//' + window.location.hostname + 
+                        (window.location.port ? ':' + window.location.port : '') + 
+                        '/index.html' + fragment;
+                    window.location.replace(redirectUrl);
                 }
             })();
         </script>

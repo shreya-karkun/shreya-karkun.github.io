@@ -46,8 +46,8 @@ function fixPaths(dir) {
       // Remove any elements with opacity: 1 that might be loading overlays
       content = content.replace(/<div[^>]*style="[^"]*opacity:\s*1[^"]*"[^>]*>.*?<\/div>/gs, '');
 
-      // Add hash routing support to index.html
-      if (file === 'index.html') {
+      // Add hash routing support to all HTML files for direct URL access
+      if (file.endsWith('.html')) {
         const hashRoutingScript = `
 <script>
 // Handle hash routing for GitHub Pages SPA
@@ -57,9 +57,28 @@ function fixPaths(dir) {
     var hash = window.location.hash.substring(1);
     // Remove the hash and navigate to the actual route
     if (hash.startsWith('/')) {
-      window.history.replaceState(null, null, hash);
+      window.history.replaceState(null, '', hash);
       // Don't reload, let Next.js handle the routing
     }
+  }
+  
+  // Handle direct URL access - if we're on a path that should be handled by the SPA
+  var currentPath = window.location.pathname;
+  var isSPARoute = currentPath !== '/' && 
+                   currentPath !== '/index.html' && 
+                   !currentPath.startsWith('/_next/') && 
+                   !currentPath.startsWith('/images/') && 
+                   !currentPath.startsWith('/papers/') && 
+                   !currentPath.startsWith('/posters/') &&
+                   !currentPath.startsWith('/404') &&
+                   !currentPath.endsWith('.html');
+  
+  if (isSPARoute) {
+    // This is a SPA route, redirect to index.html with hash
+    var redirectUrl = window.location.protocol + '//' + window.location.hostname + 
+      (window.location.port ? ':' + window.location.port : '') + 
+      '/index.html' + '#' + currentPath + window.location.search;
+    window.location.replace(redirectUrl);
   }
   
   // Ensure content is visible immediately
