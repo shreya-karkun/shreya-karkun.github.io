@@ -18,6 +18,15 @@ function fixPaths(dir) {
       content = content.replace(/href="\/_next\//g, 'href="./_next/');
       content = content.replace(/src="\/_next\//g, 'src="./_next/');
       
+      // Also fix any remaining absolute paths in the content
+      content = content.replace(/href="\/_next\//g, 'href="./_next/');
+      content = content.replace(/src="\/_next\//g, 'src="./_next/');
+      content = content.replace(/url\(\/_next\//g, 'url(./_next/');
+      
+      // Fix any paths in script content
+      content = content.replace(/"\/_next\//g, '"./_next/');
+      content = content.replace(/'\/_next\//g, "'./_next/");
+      
       fs.writeFileSync(filePath, content);
       console.log(`Fixed paths in ${filePath}`);
     }
