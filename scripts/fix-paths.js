@@ -52,37 +52,35 @@ function fixPaths(dir) {
 <script>
 // Handle hash routing for GitHub Pages SPA
 (function() {
-  // Simple routing without complex reload detection
-  setTimeout(function() {
-    // Check if we have a hash in the URL
-    if (window.location.hash) {
-      var hash = window.location.hash.substring(1);
-      // Remove the hash and navigate to the actual route
-      if (hash.startsWith('/')) {
-        window.history.replaceState(null, '', hash);
-        // Don't reload, let Next.js handle the routing
-      }
+  // Immediate routing without delays
+  // Check if we have a hash in the URL
+  if (window.location.hash) {
+    var hash = window.location.hash.substring(1);
+    // Remove the hash and navigate to the actual route
+    if (hash.startsWith('/')) {
+      window.history.replaceState(null, '', hash);
+      // Don't reload, let Next.js handle the routing
     }
-    
-    // Handle direct URL access - if we're on a path that should be handled by the SPA
-    var currentPath = window.location.pathname;
-    var isSPARoute = currentPath !== '/' && 
-                     currentPath !== '/index.html' && 
-                     !currentPath.startsWith('/_next/') && 
-                     !currentPath.startsWith('/images/') && 
-                     !currentPath.startsWith('/papers/') && 
-                     !currentPath.startsWith('/posters/') &&
-                     !currentPath.startsWith('/404') &&
-                     !currentPath.endsWith('.html');
-    
-    if (isSPARoute) {
-      // This is a SPA route, redirect to index.html with hash
-      var redirectUrl = window.location.protocol + '//' + window.location.hostname + 
-        (window.location.port ? ':' + window.location.port : '') + 
-        '/index.html' + '#' + currentPath + window.location.search;
-      window.location.replace(redirectUrl);
-    }
-  }, 50); // Minimal delay
+  }
+  
+  // Handle direct URL access - if we're on a path that should be handled by the SPA
+  var currentPath = window.location.pathname;
+  var isSPARoute = currentPath !== '/' && 
+                   currentPath !== '/index.html' && 
+                   !currentPath.startsWith('/_next/') && 
+                   !currentPath.startsWith('/images/') && 
+                   !currentPath.startsWith('/papers/') && 
+                   !currentPath.startsWith('/posters/') &&
+                   !currentPath.startsWith('/404') &&
+                   !currentPath.endsWith('.html');
+  
+  if (isSPARoute) {
+    // This is a SPA route, redirect to index.html with hash
+    var redirectUrl = window.location.protocol + '//' + window.location.hostname + 
+      (window.location.port ? ':' + window.location.port : '') + 
+      '/index.html' + '#' + currentPath + window.location.search;
+    window.location.replace(redirectUrl);
+  }
   
   // Ensure content is visible immediately
   function ensureContentVisible() {
@@ -114,10 +112,6 @@ function fixPaths(dir) {
   
   // Also run on DOMContentLoaded
   document.addEventListener('DOMContentLoaded', ensureContentVisible);
-  
-  // Fallback for all cases
-  setTimeout(ensureContentVisible, 50);
-  setTimeout(ensureContentVisible, 100);
 })();
 </script>`;
         

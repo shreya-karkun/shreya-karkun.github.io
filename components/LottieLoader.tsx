@@ -7,29 +7,24 @@ import buildAnimation from '@/images/shreya/build.json';
 interface LottieLoaderProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
-  delay?: number;
 }
 
-export default function LottieLoader({ className = "", size = 'md', delay = 0 }: LottieLoaderProps) {
+export default function LottieLoader({ className = "", size = 'md' }: LottieLoaderProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
-    // Simple Lottie loading without complex reload detection
-    const timer = setTimeout(() => {
-      setAnimationData(buildAnimation);
-      setIsVisible(true);
-      
-      // Auto-hide after 5 seconds to prevent infinite loading
-      const hideTimer = setTimeout(() => {
-        setIsVisible(false);
-      }, 5000);
+    // Load Lottie animation immediately
+    setAnimationData(buildAnimation);
+    setIsVisible(true);
+    
+    // Auto-hide after 5 seconds to prevent infinite loading
+    const hideTimer = setTimeout(() => {
+      setIsVisible(false);
+    }, 5000);
 
-      return () => clearTimeout(hideTimer);
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [delay]);
+    return () => clearTimeout(hideTimer);
+  }, []);
 
   if (!isVisible || !animationData) return null;
 

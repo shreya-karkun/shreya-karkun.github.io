@@ -19,34 +19,30 @@ export default function ParticleBackground() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Simple particle loading without complex reload detection
-    const timer = setTimeout(() => {
-      const colors = [
-        'bg-indigo-400',
-        'bg-purple-400', 
-        'bg-cyan-400',
-        'bg-pink-400',
-        'bg-yellow-400'
-      ];
+    // Load particles immediately
+    const colors = [
+      'bg-indigo-400',
+      'bg-purple-400', 
+      'bg-cyan-400',
+      'bg-pink-400',
+      'bg-yellow-400'
+    ];
 
-      const newParticles: Particle[] = [];
-      for (let i = 0; i < 10; i++) { // Reduced particle count
-        newParticles.push({
-          id: i,
-          x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
-          y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
-          size: Math.random() * 2 + 1, // Smaller particles
-          speedX: (Math.random() - 0.5) * 0.2, // Slower movement
-          speedY: (Math.random() - 0.5) * 0.2,
-          opacity: Math.random() * 0.15 + 0.05, // Lower opacity
-          color: colors[Math.floor(Math.random() * colors.length)]
-        });
-      }
-      setParticles(newParticles);
-      setIsLoaded(true);
-    }, 500); // Reduced delay
-
-    return () => clearTimeout(timer);
+    const newParticles: Particle[] = [];
+    for (let i = 0; i < 8; i++) { // Reduced particle count
+      newParticles.push({
+        id: i,
+        x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
+        y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+        size: Math.random() * 2 + 1, // Smaller particles
+        speedX: (Math.random() - 0.5) * 0.2, // Slower movement
+        speedY: (Math.random() - 0.5) * 0.2,
+        opacity: Math.random() * 0.15 + 0.05, // Lower opacity
+        color: colors[Math.floor(Math.random() * colors.length)]
+      });
+    }
+    setParticles(newParticles);
+    setIsLoaded(true);
   }, []);
 
   if (!isLoaded) return null;
