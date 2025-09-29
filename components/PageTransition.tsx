@@ -35,10 +35,22 @@ const pageTransition = {
 export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(true);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsLoading(false);
+    setIsClient(true);
+    // Reduce loading time for static export
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, []);
+
+  // For static export, don't show loading spinner
+  if (!isClient || process.env.STATIC_EXPORT === 'true') {
+    return <div className="min-h-screen">{children}</div>;
+  }
 
   if (isLoading) {
     return (
