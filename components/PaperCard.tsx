@@ -36,31 +36,33 @@ export default function PaperCard({ p }: PaperCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-start justify-between gap-4 mb-4">
-        <div className="flex-1">
-          <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-            {p.title}
-          </h3>
-          <div className="flex items-center gap-4 text-sm text-zinc-600 dark:text-zinc-400 mb-2">
-            <div className="flex items-center gap-1">
-              <Users className="w-4 h-4" />
-              <span>{p.authors.join(', ')}</span>
+      <div className="mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+          <div className="flex-1">
+            <h3 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-tight">
+              {p.title}
+            </h3>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-zinc-600 dark:text-zinc-400 mb-2">
+              <div className="flex items-center gap-1">
+                <Users className="w-4 h-4 flex-shrink-0" />
+                <span className="truncate">{p.authors.join(', ')}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Calendar className="w-4 h-4 flex-shrink-0" />
+                <span>{p.year}</span>
+              </div>
             </div>
-            <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              <span>{p.year}</span>
-            </div>
+            <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+              {p.venue} {p.location && `• ${p.location}`}
+            </p>
           </div>
-          <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
-            {p.venue} {p.location && `• ${p.location}`}
-          </p>
+          {p.awards?.length ? (
+            <div className="flex items-center gap-1 text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-3 py-1 rounded-full self-start">
+              <Award className="w-4 h-4" />
+              <span className="text-xs font-medium">{p.awards[0]}</span>
+            </div>
+          ) : null}
         </div>
-        {p.awards?.length ? (
-          <div className="flex items-center gap-1 text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-3 py-1 rounded-full">
-            <Award className="w-4 h-4" />
-            <span className="text-xs font-medium">{p.awards[0]}</span>
-          </div>
-        ) : null}
       </div>
       
       {p.abstract && (

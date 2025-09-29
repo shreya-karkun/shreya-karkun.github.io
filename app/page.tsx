@@ -17,7 +17,7 @@ export default function Home() {
     <div>
       <AnimatedHero />
       
-      <div className="space-y-10 -mt-20 relative z-10">
+      <div className="space-y-8 sm:space-y-10 -mt-16 sm:-mt-20 relative z-10">
 
       {/* Researcher Quote Section */}
       <Section title="💭 Research Philosophy" description="Words that inspire my journey in research.">
@@ -27,28 +27,28 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-6 sm:p-8 md:p-12 relative overflow-hidden">
             {/* Decorative elements */}
-            <div className="absolute top-4 right-4 text-6xl opacity-10">
-              <Sparkles className="w-16 h-16 text-indigo-400" />
+            <div className="absolute top-2 sm:top-4 right-2 sm:right-4 text-4xl sm:text-6xl opacity-10">
+              <Sparkles className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-400" />
             </div>
-            <div className="absolute bottom-4 left-4 text-4xl opacity-10">
-              <Heart className="w-12 h-12 text-pink-400" />
+            <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-3xl sm:text-4xl opacity-10">
+              <Heart className="w-8 h-8 sm:w-12 sm:h-12 text-pink-400" />
             </div>
             
             <div className="relative z-10">
-              <Quote className="w-8 h-8 text-indigo-600 dark:text-indigo-400 mb-4" />
-              <blockquote className="text-xl md:text-2xl font-medium text-zinc-800 dark:text-zinc-200 mb-6 leading-relaxed">
+              <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600 dark:text-indigo-400 mb-3 sm:mb-4" />
+              <blockquote className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-800 dark:text-zinc-200 mb-4 sm:mb-6 leading-relaxed">
                 "The best way to find out if you can trust somebody is to trust them. 
                 <span className="text-indigo-600 dark:text-indigo-400 font-semibold"> Research is about asking the right questions</span>, 
                 not just finding the right answers. Every discovery opens new doors to understanding."
               </blockquote>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <div>
                   <p className="font-semibold text-zinc-900 dark:text-zinc-100">— Ernest Hemingway</p>
                   <p className="text-sm text-zinc-600 dark:text-zinc-400">Adapted for Research Context</p>
                 </div>
-                <div className="text-2xl">✨</div>
+                <div className="text-xl sm:text-2xl">✨</div>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function Home() {
       </Section>
 
       <Section title="🎯 Focus areas">
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {[
             { 
               title: '🗣️ Speech Production', 
@@ -81,17 +81,17 @@ export default function Home() {
           ].map((c, i) => (
             <motion.div 
               key={i} 
-              className="card p-6 hover:shadow-lg transition-all duration-300"
+              className="card p-4 sm:p-6 hover:shadow-lg transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ scale: 1.02 }}
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">{c.emoji}</span>
-                <h3 className="font-semibold">{c.title}</h3>
+                <span className="text-xl sm:text-2xl">{c.emoji}</span>
+                <h3 className="font-semibold text-sm sm:text-base">{c.title}</h3>
               </div>
-              <p className="text-sm mt-2 opacity-90">{c.text}</p>
+              <p className="text-xs sm:text-sm mt-2 opacity-90 leading-relaxed">{c.text}</p>
             </motion.div>
           ))}
         </div>
@@ -105,16 +105,16 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <div className="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-8 md:p-12">
-            <div className="text-6xl mb-4">💖</div>
-            <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+          <div className="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-6 sm:p-8 md:p-12">
+            <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">💖</div>
+            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-3 sm:mb-4">
               Made with Love by Shreya
             </h3>
-            <p className="text-lg text-zinc-700 dark:text-zinc-300 mb-6">
+            <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 mb-4 sm:mb-6 leading-relaxed">
               Every line of code, every research paper, and every discovery is driven by passion and dedication. 
               This website represents not just my work, but my journey in the fascinating world of speech research.
             </p>
-            <div className="flex justify-center gap-4 text-2xl">
+            <div className="flex justify-center gap-3 sm:gap-4 text-xl sm:text-2xl">
               <span>🔬</span>
               <span>💡</span>
               <span>🚀</span>

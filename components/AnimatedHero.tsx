@@ -188,16 +188,16 @@ export default function AnimatedHero() {
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left order-2 lg:order-1"
           >
             <motion.h1
-              className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -208,14 +208,16 @@ export default function AnimatedHero() {
             </motion.h1>
             
             <motion.div
-              className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 mb-4"
+              className="text-lg sm:text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span className="font-semibold text-indigo-600 dark:text-indigo-400">🔬 Research Associate</span>
-              <span className="mx-2">•</span>
-              <span>🏛️ SPIRE Lab, IISc</span>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <span className="font-semibold text-indigo-600 dark:text-indigo-400">🔬 Research Associate</span>
+                <span className="hidden sm:inline">•</span>
+                <span>🏛️ SPIRE Lab, IISc</span>
+              </div>
             </motion.div>
 
             <motion.div
@@ -287,7 +289,7 @@ export default function AnimatedHero() {
 
           {/* Hero Image Slider */}
           <motion.div
-            className="relative"
+            className="relative order-1 lg:order-2"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -308,7 +310,7 @@ export default function AnimatedHero() {
               />
               
               {/* Main image container */}
-              <div className="relative bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
+              <div className="relative bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl">
                 <div className="relative overflow-hidden rounded-2xl">
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -347,20 +349,20 @@ export default function AnimatedHero() {
                 {/* Navigation Controls */}
                 <motion.button
                   onClick={goToPrevious}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+                  className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                 </motion.button>
                 
                 <motion.button
                   onClick={goToNext}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+                  className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </motion.button>
 
                 {/* Play/Pause Button */}

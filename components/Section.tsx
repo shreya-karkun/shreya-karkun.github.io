@@ -21,17 +21,17 @@ export default function Section({ title, description, children, className = "", 
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <div className="mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 font-serif">
+      <div className="mb-6 sm:mb-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-3 sm:mb-4 font-serif">
           {title}
         </h2>
         {description && (
-          <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
             {description}
           </p>
         )}
       </div>
-      <div className="grid gap-6">{children}</div>
+      <div className="grid gap-4 sm:gap-6">{children}</div>
     </motion.section>
   );
 }
