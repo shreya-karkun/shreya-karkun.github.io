@@ -48,6 +48,32 @@ body {
   100% { background-position: -200% 0; }
 }
 
+/* Reload-specific optimizations */
+.reload-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Prevent layout shifts during reload */
+.reload-stable {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Smooth transitions for reloads */
+@media (prefers-reduced-motion: no-preference) {
+  .reload-smooth {
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+}
+
+/* Immediate visibility for reloads */
+.reload-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* Signature font styling */
 .font-dancing-script {
   font-family: var(--font-dancing-script), cursive;

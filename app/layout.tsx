@@ -36,7 +36,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spectral.variable} ${dancingScript.variable} min-h-screen bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900 text-zinc-900 dark:text-zinc-100 gradient`}>
+      <body className={`${inter.variable} ${spectral.variable} ${dancingScript.variable} min-h-screen bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900 text-zinc-900 dark:text-zinc-100 gradient reload-optimized reload-stable`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <ClientWrapper>
             <ProgressIndicator />

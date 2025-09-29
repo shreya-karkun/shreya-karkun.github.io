@@ -19,6 +19,21 @@ export default function ParticleBackground() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    // Detect if this is a page reload
+    const isReload = typeof window !== 'undefined' && 
+      window.performance && 
+      (window.performance as any).navigation && 
+      (window.performance as any).navigation.type === 1;
+    
+    const isPageReload = typeof window !== 'undefined' && 
+      window.performance && 
+      window.performance.getEntriesByType && 
+      window.performance.getEntriesByType('navigation')[0] && 
+      (window.performance.getEntriesByType('navigation')[0] as any).type === 'reload';
+    
+    // For reloads, delay particle loading longer to prevent stuttering
+    const delay = (isReload || isPageReload) ? 2000 : 1000;
+    
     // Delay particle loading to prevent stuttering
     const timer = setTimeout(() => {
       const colors = [
@@ -30,21 +45,21 @@ export default function ParticleBackground() {
       ];
 
       const newParticles: Particle[] = [];
-      for (let i = 0; i < 15; i++) { // Reduced particle count
+      for (let i = 0; i < 12; i++) { // Further reduced particle count for reloads
         newParticles.push({
           id: i,
           x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
           y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
-          size: Math.random() * 3 + 1.5, // Smaller particles
-          speedX: (Math.random() - 0.5) * 0.3, // Slower movement
-          speedY: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.3 + 0.1, // Lower opacity
+          size: Math.random() * 2.5 + 1, // Even smaller particles
+          speedX: (Math.random() - 0.5) * 0.2, // Even slower movement
+          speedY: (Math.random() - 0.5) * 0.2,
+          opacity: Math.random() * 0.2 + 0.05, // Even lower opacity
           color: colors[Math.floor(Math.random() * colors.length)]
         });
       }
       setParticles(newParticles);
       setIsLoaded(true);
-    }, 1000); // 1 second delay
+    }, delay);
 
     return () => clearTimeout(timer);
   }, []);

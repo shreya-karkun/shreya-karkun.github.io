@@ -52,37 +52,46 @@ function fixPaths(dir) {
 <script>
 // Handle hash routing for GitHub Pages SPA
 (function() {
-  // Check if we have a hash in the URL
-  if (window.location.hash) {
-    var hash = window.location.hash.substring(1);
-    // Remove the hash and navigate to the actual route
-    if (hash.startsWith('/')) {
-      window.history.replaceState(null, '', hash);
-      // Don't reload, let Next.js handle the routing
+  // Detect if this is a page reload
+  var isReload = window.performance && window.performance.navigation && window.performance.navigation.type === 1;
+  var isPageReload = window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType('navigation')[0] && window.performance.getEntriesByType('navigation')[0].type === 'reload';
+  
+  // For page reloads, delay routing to prevent conflicts
+  var routingDelay = (isReload || isPageReload) ? 100 : 0;
+  
+  setTimeout(function() {
+    // Check if we have a hash in the URL
+    if (window.location.hash) {
+      var hash = window.location.hash.substring(1);
+      // Remove the hash and navigate to the actual route
+      if (hash.startsWith('/')) {
+        window.history.replaceState(null, '', hash);
+        // Don't reload, let Next.js handle the routing
+      }
     }
-  }
-  
-  // Handle direct URL access - if we're on a path that should be handled by the SPA
-  var currentPath = window.location.pathname;
-  var isSPARoute = currentPath !== '/' && 
-                   currentPath !== '/index.html' && 
-                   !currentPath.startsWith('/_next/') && 
-                   !currentPath.startsWith('/images/') && 
-                   !currentPath.startsWith('/papers/') && 
-                   !currentPath.startsWith('/posters/') &&
-                   !currentPath.startsWith('/404') &&
-                   !currentPath.endsWith('.html');
-  
-  if (isSPARoute) {
-    // This is a SPA route, redirect to index.html with hash
-    var redirectUrl = window.location.protocol + '//' + window.location.hostname + 
-      (window.location.port ? ':' + window.location.port : '') + 
-      '/index.html' + '#' + currentPath + window.location.search;
-    window.location.replace(redirectUrl);
-  }
+    
+    // Handle direct URL access - if we're on a path that should be handled by the SPA
+    var currentPath = window.location.pathname;
+    var isSPARoute = currentPath !== '/' && 
+                     currentPath !== '/index.html' && 
+                     !currentPath.startsWith('/_next/') && 
+                     !currentPath.startsWith('/images/') && 
+                     !currentPath.startsWith('/papers/') && 
+                     !currentPath.startsWith('/posters/') &&
+                     !currentPath.startsWith('/404') &&
+                     !currentPath.endsWith('.html');
+    
+    if (isSPARoute) {
+      // This is a SPA route, redirect to index.html with hash
+      var redirectUrl = window.location.protocol + '//' + window.location.hostname + 
+        (window.location.port ? ':' + window.location.port : '') + 
+        '/index.html' + '#' + currentPath + window.location.search;
+      window.location.replace(redirectUrl);
+    }
+  }, routingDelay);
   
   // Ensure content is visible immediately
-  document.addEventListener('DOMContentLoaded', function() {
+  function ensureContentVisible() {
     // Remove any loading overlays
     var loadingElements = document.querySelectorAll('.fixed.inset-0.z-50');
     loadingElements.forEach(function(el) {
@@ -104,15 +113,26 @@ function fixPaths(dir) {
         el.style.display = 'block';
       }
     });
-  });
+  }
   
-  // Also run immediately in case DOMContentLoaded already fired
-  setTimeout(function() {
-    var loadingElements = document.querySelectorAll('.fixed.inset-0.z-50');
-    loadingElements.forEach(function(el) {
-      el.remove();
-    });
-  }, 100);
+  // Handle reload detection for smoother experience
+  var isReload = window.performance && window.performance.navigation && window.performance.navigation.type === 1;
+  var isPageReload = window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType('navigation')[0] && window.performance.getEntriesByType('navigation')[0].type === 'reload';
+  
+  if (isReload || isPageReload) {
+    // For reloads, ensure content is visible immediately
+    ensureContentVisible();
+    
+    // Also run after a short delay to catch any late-loading elements
+    setTimeout(ensureContentVisible, 50);
+    setTimeout(ensureContentVisible, 200);
+  } else {
+    // For normal navigation, use DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', ensureContentVisible);
+  }
+  
+  // Fallback for all cases
+  setTimeout(ensureContentVisible, 100);
 })();
 </script>`;
         
