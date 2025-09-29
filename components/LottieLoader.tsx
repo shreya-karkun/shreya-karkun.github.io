@@ -15,22 +15,7 @@ export default function LottieLoader({ className = "", size = 'md', delay = 0 }:
   const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
-    // Detect if this is a page reload
-    const isReload = typeof window !== 'undefined' && 
-      window.performance && 
-      (window.performance as any).navigation && 
-      (window.performance as any).navigation.type === 1;
-    
-    const isPageReload = typeof window !== 'undefined' && 
-      window.performance && 
-      window.performance.getEntriesByType && 
-      window.performance.getEntriesByType('navigation')[0] && 
-      (window.performance.getEntriesByType('navigation')[0] as any).type === 'reload';
-    
-    // For reloads, delay Lottie loading longer to prevent stuttering
-    const adjustedDelay = (isReload || isPageReload) ? delay + 1000 : delay;
-    
-    // Delay loading to prevent stuttering
+    // Simple Lottie loading without complex reload detection
     const timer = setTimeout(() => {
       setAnimationData(buildAnimation);
       setIsVisible(true);
@@ -41,7 +26,7 @@ export default function LottieLoader({ className = "", size = 'md', delay = 0 }:
       }, 5000);
 
       return () => clearTimeout(hideTimer);
-    }, adjustedDelay);
+    }, delay);
 
     return () => clearTimeout(timer);
   }, [delay]);

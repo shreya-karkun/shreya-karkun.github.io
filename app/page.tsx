@@ -32,10 +32,10 @@ export default function Home() {
           <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-6 sm:p-8 md:p-12 relative overflow-hidden">
             {/* Lottie Animation Background */}
             <div className="absolute top-4 right-4 opacity-15 pointer-events-none">
-              <LottieLoader size="sm" delay={1500} />
+              <LottieLoader size="sm" delay={800} />
             </div>
             <div className="absolute bottom-4 left-4 opacity-10 pointer-events-none">
-              <LottieLoader size="sm" delay={2500} />
+              <LottieLoader size="sm" delay={1200} />
             </div>
             
             {/* Decorative elements */}
@@ -102,7 +102,7 @@ export default function Home() {
             >
               {/* Lottie Animation Background */}
               <div className="absolute top-2 right-2 opacity-10 pointer-events-none">
-                <LottieLoader size="sm" delay={2000} />
+                <LottieLoader size="sm" delay={1000} />
               </div>
               
               <div className="flex items-center gap-3 mb-3 relative z-10">
@@ -168,10 +168,10 @@ export default function Home() {
           <div className="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-zinc-800 dark:to-zinc-700 rounded-2xl p-6 sm:p-8 md:p-12 relative overflow-hidden">
             {/* Lottie Animation Background */}
             <div className="absolute top-4 right-4 opacity-20 pointer-events-none">
-              <LottieLoader size="sm" delay={3000} />
+              <LottieLoader size="sm" delay={1500} />
             </div>
             <div className="absolute bottom-4 left-4 opacity-15 pointer-events-none">
-              <LottieLoader size="sm" delay={3500} />
+              <LottieLoader size="sm" delay={1800} />
             </div>
             
             <div className="text-4xl sm:text-6xl mb-3 sm:mb-4 relative z-10">💖</div>

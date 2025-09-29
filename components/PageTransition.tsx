@@ -39,32 +39,15 @@ export default function PageTransition({ children }: PageTransitionProps) {
   useEffect(() => {
     setIsClient(true);
     
-    // Detect if this is a page reload
-    const isReload = typeof window !== 'undefined' && 
-      window.performance && 
-      (window.performance as any).navigation && 
-      (window.performance as any).navigation.type === 1;
-    
-    const isPageReload = typeof window !== 'undefined' && 
-      window.performance && 
-      window.performance.getEntriesByType && 
-      window.performance.getEntriesByType('navigation')[0] && 
-      (window.performance.getEntriesByType('navigation')[0] as any).type === 'reload';
-    
-    // For reloads, delay hash handling to prevent conflicts
-    const delay = (isReload || isPageReload) ? 150 : 0;
-    
-    setTimeout(() => {
-      // Handle hash routing for GitHub Pages
-      if (typeof window !== 'undefined' && window.location.hash) {
-        const hash = window.location.hash.substring(1);
-        if (hash.startsWith('/')) {
-          // Remove the hash and navigate to the actual route
-          window.history.replaceState(null, '', hash);
-          // Don't reload, just let Next.js handle the routing
-        }
+    // Simple hash routing without complex reload detection
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      if (hash.startsWith('/')) {
+        // Remove the hash and navigate to the actual route
+        window.history.replaceState(null, '', hash);
+        // Don't reload, just let Next.js handle the routing
       }
-    }, delay);
+    }
   }, []);
 
   // For static export or GitHub Pages, never show loading spinner

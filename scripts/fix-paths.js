@@ -52,13 +52,7 @@ function fixPaths(dir) {
 <script>
 // Handle hash routing for GitHub Pages SPA
 (function() {
-  // Detect if this is a page reload
-  var isReload = window.performance && window.performance.navigation && window.performance.navigation.type === 1;
-  var isPageReload = window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType('navigation')[0] && window.performance.getEntriesByType('navigation')[0].type === 'reload';
-  
-  // For page reloads, delay routing to prevent conflicts
-  var routingDelay = (isReload || isPageReload) ? 100 : 0;
-  
+  // Simple routing without complex reload detection
   setTimeout(function() {
     // Check if we have a hash in the URL
     if (window.location.hash) {
@@ -88,7 +82,7 @@ function fixPaths(dir) {
         '/index.html' + '#' + currentPath + window.location.search;
       window.location.replace(redirectUrl);
     }
-  }, routingDelay);
+  }, 50); // Minimal delay
   
   // Ensure content is visible immediately
   function ensureContentVisible() {
@@ -115,23 +109,14 @@ function fixPaths(dir) {
     });
   }
   
-  // Handle reload detection for smoother experience
-  var isReload = window.performance && window.performance.navigation && window.performance.navigation.type === 1;
-  var isPageReload = window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType('navigation')[0] && window.performance.getEntriesByType('navigation')[0].type === 'reload';
+  // Ensure content is visible immediately for all cases
+  ensureContentVisible();
   
-  if (isReload || isPageReload) {
-    // For reloads, ensure content is visible immediately
-    ensureContentVisible();
-    
-    // Also run after a short delay to catch any late-loading elements
-    setTimeout(ensureContentVisible, 50);
-    setTimeout(ensureContentVisible, 200);
-  } else {
-    // For normal navigation, use DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', ensureContentVisible);
-  }
+  // Also run on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', ensureContentVisible);
   
   // Fallback for all cases
+  setTimeout(ensureContentVisible, 50);
   setTimeout(ensureContentVisible, 100);
 })();
 </script>`;

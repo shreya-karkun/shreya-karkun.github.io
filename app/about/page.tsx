@@ -17,7 +17,7 @@ export default function About() {
       <section className="card p-6 sm:p-8 relative overflow-hidden">
         {/* Lottie Animation Background */}
         <div className="absolute top-4 right-4 opacity-10 pointer-events-none">
-          <LottieLoader size="sm" delay={800} />
+          <LottieLoader size="sm" delay={500} />
         </div>
         
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">

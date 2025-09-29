@@ -149,10 +149,10 @@ export default function AnimatedHero() {
 
       {/* Lottie Animation Background */}
       <div className="absolute top-4 right-4 opacity-20 pointer-events-none">
-        <LottieLoader size="sm" delay={500} />
+        <LottieLoader size="sm" delay={300} />
       </div>
       <div className="absolute bottom-4 left-4 opacity-15 pointer-events-none">
-        <LottieLoader size="sm" delay={1000} />
+        <LottieLoader size="sm" delay={600} />
       </div>
 
       {/* Gradient Orbs */}
