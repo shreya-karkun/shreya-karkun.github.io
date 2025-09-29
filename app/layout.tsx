@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <ClientWrapper>
             <Header />
-            <main className="container py-8">{children}</main>
+            <main className="container py-6 sm:py-8">{children}</main>
             <Footer />
           </ClientWrapper>
         </ThemeProvider>

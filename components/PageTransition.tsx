@@ -34,23 +34,28 @@ const pageTransition = {
 
 export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
-  const [isLoading, setIsLoading] = useState(false); // Start with false for static export
+  const [isLoading, setIsLoading] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
-    // Only show loading in development or when not static export
-    if (process.env.NODE_ENV === 'development' && process.env.STATIC_EXPORT !== 'true') {
+    // Never show loading spinner for static exports or GitHub Pages
+    // Only show in development mode with server-side rendering
+    const isStaticExport = process.env.STATIC_EXPORT === 'true' || process.env.GH_PAGES === 'true';
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
+    if (!isStaticExport && isDevelopment && typeof window !== 'undefined') {
       setIsLoading(true);
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 100);
+      }, 50);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  // For static export, never show loading spinner
-  if (process.env.STATIC_EXPORT === 'true' || process.env.GH_PAGES === 'true') {
+  // For static export or GitHub Pages, never show loading spinner
+  const isStaticExport = process.env.STATIC_EXPORT === 'true' || process.env.GH_PAGES === 'true';
+  if (isStaticExport || !isClient) {
     return <div className="min-h-screen">{children}</div>;
   }
 

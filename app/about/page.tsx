@@ -13,15 +13,15 @@ import { motion } from 'framer-motion';
 export default function About() {
   return (
     <div className="space-y-10">
-      <section className="card p-8">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+      <section className="card p-6 sm:p-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-3xl font-bold mb-4">About Me</h1>
-            <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-6 max-w-3xl">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">About Me</h1>
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 mb-4 sm:mb-6 max-w-3xl leading-relaxed">
               {profile.summary}
             </p>
             <div className="space-y-4">
@@ -68,7 +68,7 @@ export default function About() {
               />
               
               {/* Main image container */}
-              <div className="relative bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm rounded-3xl p-6 shadow-2xl">
+              <div className="relative bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm rounded-3xl p-4 sm:p-6 shadow-2xl">
                 <div className="relative overflow-hidden rounded-2xl">
                   <Image
                     src="/images/shreya/hero.jpg"
@@ -97,11 +97,11 @@ export default function About() {
         <Timeline items={experience as any[]} />
       </Section>
       <Section title="Education">
-        <ul className="grid md:grid-cols-2 gap-4">
+        <ul className="grid sm:grid-cols-2 gap-4">
           {(education as any[]).map((e, i) => (
-            <li key={i} className="card p-4">
-              <div className="font-semibold">{e.degree} – {e.school}</div>
-              <div className="text-sm opacity-80">{e.field} • {e.year}</div>
+            <li key={i} className="card p-4 sm:p-6">
+              <div className="font-semibold text-sm sm:text-base">{e.degree} – {e.school}</div>
+              <div className="text-xs sm:text-sm opacity-80 mt-1">{e.field} • {e.year}</div>
             </li>
           ))}
         </ul>
