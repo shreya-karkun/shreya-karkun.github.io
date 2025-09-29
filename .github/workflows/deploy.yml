@@ -25,7 +25,8 @@ jobs:
         run: npm ci
         
       - name: Build with GitHub Pages config
-        run: npm run build:gh-pages
+        run: |
+          npm run build:gh-pages
         env:
           GH_PAGES: true
           STATIC_EXPORT: true

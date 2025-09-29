@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "export": "STATIC_EXPORT=true next build",
-    "build:gh-pages": "cross-env GH_PAGES=true STATIC_EXPORT=true next build",
+    "build:gh-pages": "cross-env GH_PAGES=true STATIC_EXPORT=true next build && node scripts/fix-paths.js",
     "deploy": "npm run build:gh-pages && git checkout gh-pages && robocopy out . /E /MOVE && git add . && git commit -m \"Deploy: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')\" && git push origin gh-pages && git checkout main"
   },
   "dependencies": {
