@@ -33,6 +33,6 @@ echo 🔄 Switching back to main branch...
 git checkout main
 
 echo ✅ Deployment successful!
-echo 🌐 Your site is live at: https://shreyakarkun025.github.io
+echo 🌐 Your site is live at: https://shreya-karkun.github.io
 echo 🎉 Deployment complete!
 pause

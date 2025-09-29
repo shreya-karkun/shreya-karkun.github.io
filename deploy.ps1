@@ -35,7 +35,7 @@ git push origin gh-pages
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✅ Deployment successful!" -ForegroundColor Green
-    Write-Host "🌐 Your site is live at: https://shreyakarkun025.github.io" -ForegroundColor Cyan
+    Write-Host "🌐 Your site is live at: https://shreya-karkun.github.io" -ForegroundColor Cyan
 } else {
     Write-Host "❌ Push failed!" -ForegroundColor Red
     exit 1

@@ -6,9 +6,9 @@
   "/cv/page": "app/cv/page.js",
   "/robots.txt/route": "app/robots.txt/route.js",
   "/talks-posters/page": "app/talks-posters/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/research/page": "app/research/page.js",
   "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/research/page": "app/research/page.js",
+  "/contact/page": "app/contact/page.js",
   "/projects/page": "app/projects/page.js"
 }
