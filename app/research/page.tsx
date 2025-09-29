@@ -1,8 +1,8 @@
+'use client';
+
 import Section from '@/components/Section';
 import { motion } from 'framer-motion';
 import { GraduationCap, Target, Globe, BookOpen, Users, Award } from 'lucide-react';
-
-export const metadata = { title: 'Research – Shreya Karkun' };
 
 export default function Research() {
   return (

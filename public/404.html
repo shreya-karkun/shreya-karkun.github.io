@@ -50,13 +50,33 @@
         <script>
             // Load Lottie animation
             (function() {
-                // Simple fallback animation if Lottie fails to load
                 var animationContainer = document.getElementById('lottie-animation');
-                if (animationContainer && typeof lottie !== 'undefined') {
-                    // You would need to load the build.json file here
-                    // For now, we'll use a simple CSS animation as fallback
-                    animationContainer.innerHTML = '<div style="width: 60px; height: 60px; border: 4px solid rgba(255,255,255,0.3); border-radius: 50%; border-top: 4px solid white; animation: spin 1s linear infinite; margin: 0 auto;"></div>';
+                
+                // Wait for Lottie to load
+                function loadAnimation() {
+                    if (typeof lottie !== 'undefined' && animationContainer) {
+                        try {
+                            // Load the build.json animation
+                            var animation = lottie.loadAnimation({
+                                container: animationContainer,
+                                renderer: 'svg',
+                                loop: true,
+                                autoplay: true,
+                                path: './images/shreya/build.json'
+                            });
+                        } catch (error) {
+                            console.log('Lottie animation failed to load, using fallback');
+                            // Fallback to CSS animation
+                            animationContainer.innerHTML = '<div style="width: 60px; height: 60px; border: 4px solid rgba(255,255,255,0.3); border-radius: 50%; border-top: 4px solid white; animation: spin 1s linear infinite; margin: 0 auto;"></div>';
+                        }
+                    } else {
+                        // Retry after a short delay
+                        setTimeout(loadAnimation, 100);
+                    }
                 }
+                
+                // Start loading animation
+                loadAnimation();
             })();
         </script>
         <script>

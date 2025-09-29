@@ -11,8 +11,12 @@ interface LottieLoaderProps {
 
 export default function LottieLoader({ className = "", size = 'md' }: LottieLoaderProps) {
   const [isVisible, setIsVisible] = useState(true);
+  const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
+    // Load animation data
+    setAnimationData(buildAnimation);
+    
     // Auto-hide after 3 seconds to prevent infinite loading
     const timer = setTimeout(() => {
       setIsVisible(false);
@@ -21,7 +25,7 @@ export default function LottieLoader({ className = "", size = 'md' }: LottieLoad
     return () => clearTimeout(timer);
   }, []);
 
-  if (!isVisible) return null;
+  if (!isVisible || !animationData) return null;
 
   const sizeClasses = {
     sm: 'w-16 h-16',
@@ -34,7 +38,7 @@ export default function LottieLoader({ className = "", size = 'md' }: LottieLoad
     <div className={`flex items-center justify-center ${className}`}>
       <div className={`${sizeClasses[size]} relative`}>
         <Lottie
-          animationData={buildAnimation}
+          animationData={animationData}
           loop={true}
           autoplay={true}
           style={{ width: '100%', height: '100%' }}

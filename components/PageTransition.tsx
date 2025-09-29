@@ -41,15 +41,15 @@ export default function PageTransition({ children }: PageTransitionProps) {
   useEffect(() => {
     setIsClient(true);
     
-    // Handle hash routing for GitHub Pages
-    if (typeof window !== 'undefined' && window.location.hash) {
-      const hash = window.location.hash.substring(1);
-      if (hash.startsWith('/')) {
-        // Remove the hash and navigate to the actual route
-        window.history.replaceState(null, null, hash);
-        // Don't reload, just let Next.js handle the routing
-      }
-    }
+        // Handle hash routing for GitHub Pages
+        if (typeof window !== 'undefined' && window.location.hash) {
+          const hash = window.location.hash.substring(1);
+          if (hash.startsWith('/')) {
+            // Remove the hash and navigate to the actual route
+            window.history.replaceState(null, '', hash);
+            // Don't reload, just let Next.js handle the routing
+          }
+        }
     
     // Never show loading spinner for static exports or GitHub Pages
     // Only show in development mode with server-side rendering

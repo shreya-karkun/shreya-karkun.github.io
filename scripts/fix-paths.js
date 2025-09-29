@@ -81,11 +81,32 @@ function fixPaths(dir) {
   });
 }
 
+// Copy build.json to out directory
+function copyBuildJson() {
+  const sourcePath = path.join(__dirname, '..', 'images', 'shreya', 'build.json');
+  const destDir = path.join(__dirname, '..', 'out', 'images', 'shreya');
+  const destPath = path.join(destDir, 'build.json');
+  
+  if (fs.existsSync(sourcePath)) {
+    // Create destination directory if it doesn't exist
+    if (!fs.existsSync(destDir)) {
+      fs.mkdirSync(destDir, { recursive: true });
+    }
+    
+    // Copy the file
+    fs.copyFileSync(sourcePath, destPath);
+    console.log('Copied build.json to out directory');
+  } else {
+    console.log('build.json not found in source directory');
+  }
+}
+
 // Fix paths in the out directory
 const outDir = path.join(__dirname, '..', 'out');
 if (fs.existsSync(outDir)) {
   console.log('Fixing asset paths for GitHub Pages...');
   fixPaths(outDir);
+  copyBuildJson();
   console.log('Path fixing completed!');
 } else {
   console.log('Out directory not found. Please build the project first.');

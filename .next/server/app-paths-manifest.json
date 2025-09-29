@@ -4,11 +4,11 @@
   "/page": "app/page.js",
   "/publications/page": "app/publications/page.js",
   "/cv/page": "app/cv/page.js",
-  "/robots.txt/route": "app/robots.txt/route.js",
   "/talks-posters/page": "app/talks-posters/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/blog/page": "app/blog/page.js",
   "/research/page": "app/research/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/projects/page": "app/projects/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
   "/contact/page": "app/contact/page.js",
-  "/projects/page": "app/projects/page.js"
+  "/blog/page": "app/blog/page.js"
 }
