@@ -2,14 +2,13 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Mail } from 'lucide-react';
 
 interface ContactFormProps {
-  formspreeId?: string;
   className?: string;
 }
 
-export default function ContactForm({ formspreeId, className = "" }: ContactFormProps) {
+export default function ContactForm({ className = "" }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,23 +31,29 @@ export default function ContactForm({ formspreeId, className = "" }: ContactForm
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://formspree.io/f/' + (formspreeId || 'your-form-id'), {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Contact Form: ${formData.subject}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Subject: ${formData.subject}\n\n` +
+        `Message:\n${formData.message}`
+      );
+      
+      const mailtoLink = `mailto:shreya.karkun@example.com?subject=${subject}&body=${body}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Simulate success after a short delay
+      setTimeout(() => {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setSubmitStatus('error');
-      }
+        setIsSubmitting(false);
+      }, 1000);
+      
     } catch (error) {
       setSubmitStatus('error');
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -66,8 +71,15 @@ export default function ContactForm({ formspreeId, className = "" }: ContactForm
           Get in Touch
         </h3>
         <p className="text-zinc-600 dark:text-zinc-400">
-          I'd love to hear from you! Send me a message and I'll respond as soon as possible.
+          I'd love to hear from you! Fill out the form below and it will open your email client with a pre-filled message.
         </p>
+        <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg flex items-start gap-3">
+          <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" />
+          <div className="text-sm text-blue-700 dark:text-blue-300">
+            <p className="font-medium mb-1">Alternative Contact:</p>
+            <p>You can also reach me directly at: <a href="mailto:shreya.karkun@example.com" className="underline hover:no-underline">shreya.karkun@example.com</a></p>
+          </div>
+        </div>
       </div>
 
       {submitStatus === 'success' && (
@@ -78,7 +90,7 @@ export default function ContactForm({ formspreeId, className = "" }: ContactForm
         >
           <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
           <span className="text-green-700 dark:text-green-300">
-            Thank you! Your message has been sent successfully.
+            Your email client should open with a pre-filled message. Please send the email to complete your message.
           </span>
         </motion.div>
       )}
