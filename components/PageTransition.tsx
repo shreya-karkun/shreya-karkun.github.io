@@ -70,6 +70,11 @@ export default function PageTransition({ children }: PageTransitionProps) {
     return <div className="min-h-screen">{children}</div>;
   }
 
+  // If we're in production or static export, never show loading
+  if (process.env.NODE_ENV === 'production' || isStaticExport) {
+    return <div className="min-h-screen">{children}</div>;
+  }
+
   if (isLoading) {
     return (
       <motion.div

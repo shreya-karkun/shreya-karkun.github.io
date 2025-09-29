@@ -29,6 +29,13 @@ function fixPaths(dir) {
 
       // Fix the loading spinner issue - remove the persistent loading div
       content = content.replace(/<div class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-zinc-900" style="opacity:1"><div class="w-16 h-16 border-4 border-indigo-200 dark:border-indigo-800 border-t-indigo-600 dark:border-t-indigo-400 rounded-full"><\/div><\/div>/g, '');
+      
+      // Remove any other loading spinners or loading states
+      content = content.replace(/<div class="fixed inset-0 z-50[^>]*>.*?<\/div>/gs, '');
+      content = content.replace(/style="opacity:1"[^>]*>/g, '>');
+      
+      // Remove any loading-related scripts that might cause issues
+      content = content.replace(/<script[^>]*>.*?loading.*?<\/script>/gis, '');
 
       // Add hash routing support to index.html
       if (file === 'index.html') {
@@ -42,10 +49,25 @@ function fixPaths(dir) {
     // Remove the hash and navigate to the actual route
     if (hash.startsWith('/')) {
       window.history.replaceState(null, null, hash);
-      // Trigger a page reload to load the correct content
-      window.location.reload();
+      // Don't reload, let Next.js handle the routing
     }
   }
+  
+  // Ensure content is visible immediately
+  document.addEventListener('DOMContentLoaded', function() {
+    // Remove any loading overlays
+    var loadingElements = document.querySelectorAll('.fixed.inset-0.z-50');
+    loadingElements.forEach(function(el) {
+      el.remove();
+    });
+    
+    // Make sure main content is visible
+    var mainContent = document.querySelector('main');
+    if (mainContent) {
+      mainContent.style.display = 'block';
+      mainContent.style.opacity = '1';
+    }
+  });
 })();
 </script>`;
         
@@ -68,3 +90,4 @@ if (fs.existsSync(outDir)) {
 } else {
   console.log('Out directory not found. Please build the project first.');
 }
+
