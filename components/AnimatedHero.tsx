@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import TypingAnimation from './TypingAnimation';
+import LottieLoader from './LottieLoader';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 
 interface Particle {
@@ -144,6 +145,14 @@ export default function AnimatedHero() {
             }}
           />
         ))}
+      </div>
+
+      {/* Lottie Animation Background */}
+      <div className="absolute top-4 right-4 opacity-20 pointer-events-none">
+        <LottieLoader size="sm" />
+      </div>
+      <div className="absolute bottom-4 left-4 opacity-15 pointer-events-none">
+        <LottieLoader size="sm" />
       </div>
 
       {/* Gradient Orbs */}

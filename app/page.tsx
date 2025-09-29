@@ -6,6 +6,7 @@ import Section from '@/components/Section';
 import PaperCard from '@/components/PaperCard';
 import StatPills from '@/components/StatPills';
 import AnimatedHero from '@/components/AnimatedHero';
+import LottieLoader from '@/components/LottieLoader';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Quote, Heart, Sparkles } from 'lucide-react';
@@ -81,25 +82,30 @@ export default function Home() {
           ].map((c, i) => (
             <motion.div 
               key={i} 
-              className="card p-4 sm:p-6 hover:shadow-lg transition-all duration-300"
+              className="card p-4 sm:p-6 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="flex items-center gap-3 mb-3">
+              {/* Lottie Animation Background */}
+              <div className="absolute top-2 right-2 opacity-10 pointer-events-none">
+                <LottieLoader size="sm" />
+              </div>
+              
+              <div className="flex items-center gap-3 mb-3 relative z-10">
                 <span className="text-xl sm:text-2xl">{c.emoji}</span>
                 <h3 className="font-semibold text-sm sm:text-base">{c.title}</h3>
               </div>
-              <p className="text-xs sm:text-sm mt-2 opacity-90 leading-relaxed">{c.text}</p>
+              <p className="text-xs sm:text-sm mt-2 opacity-90 leading-relaxed relative z-10">{c.text}</p>
             </motion.div>
           ))}
         </div>
       </Section>
 
       {/* Personal Touch Section */}
-      {/* PhD Aspirations Section */}
-      <Section title="🎓 PhD Aspirations" description="My journey towards advanced research in Speech Science">
+      {/* PhD Exploration Section */}
+      <Section title="🎓 Exploring Advanced Research" description="Thoughts on pursuing advanced studies in Speech Science">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -110,28 +116,28 @@ export default function Home() {
             <div className="text-center mb-6">
               <div className="text-4xl sm:text-6xl mb-4">🎓</div>
               <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
-                Pursuing PhD in Speech Science & Technology
+                Considering Advanced Research Opportunities
               </h3>
               <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 mb-6 leading-relaxed">
-                I am actively seeking PhD opportunities in Speech Science, Computational Linguistics, 
-                and Biomedical Engineering to advance my research in real-time MRI and articulatory dynamics.
+                Exploring potential PhD opportunities in Speech Science, Computational Linguistics, 
+                and Biomedical Engineering to further advance research in real-time MRI and articulatory dynamics.
               </p>
             </div>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               <div className="bg-white/60 dark:bg-zinc-800/60 rounded-xl p-4 sm:p-6 text-center">
                 <div className="text-2xl mb-2">🔬</div>
-                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Research Focus</h4>
+                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Research Interests</h4>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400">rtMRI, EMA, Co-articulation, Velum Dynamics</p>
               </div>
               <div className="bg-white/60 dark:bg-zinc-800/60 rounded-xl p-4 sm:p-6 text-center">
                 <div className="text-2xl mb-2">🎯</div>
-                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Target Programs</h4>
+                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Potential Programs</h4>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400">Speech Science, Computational Linguistics, Biomedical Engineering</p>
               </div>
               <div className="bg-white/60 dark:bg-zinc-800/60 rounded-xl p-4 sm:p-6 text-center sm:col-span-2 lg:col-span-1">
                 <div className="text-2xl mb-2">🌍</div>
-                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Global Opportunities</h4>
+                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Global Perspective</h4>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400">Open to international PhD programs and collaborations</p>
               </div>
             </div>
