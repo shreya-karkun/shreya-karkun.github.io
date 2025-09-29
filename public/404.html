@@ -77,6 +77,15 @@
                 
                 // Start loading animation
                 loadAnimation();
+                
+                // Ensure content loads immediately
+                setTimeout(function() {
+                    // Remove any loading overlays that might be present
+                    var loadingElements = document.querySelectorAll('.fixed.inset-0.z-50');
+                    loadingElements.forEach(function(el) {
+                        el.remove();
+                    });
+                }, 100);
             })();
         </script>
         <script>

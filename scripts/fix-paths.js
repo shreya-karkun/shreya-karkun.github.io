@@ -36,6 +36,15 @@ function fixPaths(dir) {
       
       // Remove any loading-related scripts that might cause issues
       content = content.replace(/<script[^>]*>.*?loading.*?<\/script>/gis, '');
+      
+      // Remove any framer-motion loading states
+      content = content.replace(/<div[^>]*class="[^"]*fixed[^"]*inset-0[^"]*"[^>]*>.*?<\/div>/gs, '');
+      
+      // Remove any elements with loading-related classes
+      content = content.replace(/<div[^>]*class="[^"]*loading[^"]*"[^>]*>.*?<\/div>/gs, '');
+      
+      // Remove any elements with opacity: 1 that might be loading overlays
+      content = content.replace(/<div[^>]*style="[^"]*opacity:\s*1[^"]*"[^>]*>.*?<\/div>/gs, '');
 
       // Add hash routing support to index.html
       if (file === 'index.html') {
@@ -67,7 +76,24 @@ function fixPaths(dir) {
       mainContent.style.display = 'block';
       mainContent.style.opacity = '1';
     }
+    
+    // Force visibility of all content
+    var allElements = document.querySelectorAll('*');
+    allElements.forEach(function(el) {
+      if (el.style.opacity === '0' || el.style.display === 'none') {
+        el.style.opacity = '1';
+        el.style.display = 'block';
+      }
+    });
   });
+  
+  // Also run immediately in case DOMContentLoaded already fired
+  setTimeout(function() {
+    var loadingElements = document.querySelectorAll('.fixed.inset-0.z-50');
+    loadingElements.forEach(function(el) {
+      el.remove();
+    });
+  }, 100);
 })();
 </script>`;
         
