@@ -5,6 +5,10 @@ const nextConfig = {
   images: { unoptimized: !!process.env.STATIC_EXPORT },
   basePath: isGH ? '' : undefined,
   assetPrefix: isGH ? '' : undefined,
-  reactStrictMode: true
+  trailingSlash: true,
+  reactStrictMode: true,
+  experimental: {
+    esmExternals: false
+  }
 };
 export default nextConfig;
